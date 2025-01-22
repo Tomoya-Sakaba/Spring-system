@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+        <h1>ホーム</h1>
+
+        <a th:href="@{/attendance}">勤怠管理</a>
+		
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="logout"/>			
+		</form>
+    </body>
+</html>
