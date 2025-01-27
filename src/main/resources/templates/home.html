@@ -4,12 +4,24 @@
         <title>Home</title>
     </head>
     <body>
+		<form th:action="@{/logout}" method="post">
+            <span th:text="|ユーザー名：${#authentication.principal.username}|"></span>
+			<input type="submit" value="logout"/>			
+		</form>
+        
         <h1>ホーム</h1>
 
         <a th:href="@{/attendance}">勤怠管理</a>
+        
+        
+        <!--管理者用-->
+        <th:block th:if="${hasUserManegeAuth}">
+            <a th:href="@{/userindex}">ユーザー管理</a>
+        </th:block>
+        
+        <th:block th:if="${hasUserManegeAuth}">
+            <a th:href="@{/usercreate}">ユーザー登録</a>
+        </th:block>
 		
-		<form th:action="@{/logout}" method="post">
-			<input type="submit" value="logout"/>			
-		</form>
     </body>
 </html>
